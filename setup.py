@@ -1,19 +1,23 @@
-from distutils.core import setup
+from setuptools import find_packages, setup
+
+def find_required():
+    with open("requirements.txt") as f:
+        return f.read().splitlines()
+
 setup(
   name = 'FastInput',         # How you named your package folder (MyLib)
   packages = ['FastInput'],   # Chose the same as "name"
-  version = 'v0.1',      # Start with a small number and increase it with every change you make
+  version = '0.1.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A package that wrap the input function with validation',   # Give a short description about your library
+  long_description=open("README.md").read(),
+  long_description_content_type="text/markdown",
   author = 'Alexandre Wetzel',                   # Type in your name
   author_email = 'alexwtz@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/alexwtz/fastInput',   # Provide either the link to your github or to your website
   download_url = 'https://github.com/alexwtz/FastInput/archive/refs/tags/v0.1.tar.gz',    # I explain this later on
   keywords = ['input', 'validation', 'prompt'],   # Keywords that define your package best
-  install_requires=[            # I get to this in a second
-          'enum',
-          'collections',
-      ],
+  install_requires=find_required(),
   classifiers=[
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
     'Intended Audience :: Developers',      # Define that your audience are developers
