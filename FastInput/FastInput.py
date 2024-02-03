@@ -6,7 +6,7 @@ This file can also be imported as a module and contains the following
 functions:
 
     * input_with_valiation - returns the input of the user according to the validation parameter povided
-    * input_with_confirmation - method used to ask for user confirmation
+    * input_for_confirmation - method used to ask for user confirmation
 """
 
 from enum import Enum
@@ -23,7 +23,7 @@ class InputType(Enum):
     STRING = 'string'
     BOOL = 'boolean'
 
-def input_with_confirmation(prompt:str, default_value:bool=None):
+def input_for_confirmation(prompt:str, default_value:bool=None):
     """
             Parameters
             ----------
@@ -135,4 +135,4 @@ if __name__ == "__main__":
 
     print(myInitForm)
 
-    input_with_confirmation("Do you like this app?")
+    input_for_confirmation("Do you like this app?")
