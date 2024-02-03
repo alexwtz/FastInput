@@ -1,1 +1,1 @@
-*** A Python library to simplify the input of a user ***
+** A Python library to simplify the input from user **
