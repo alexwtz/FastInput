@@ -16,7 +16,7 @@ setup(
   author = 'Alexandre Wetzel',                   # Type in your name
   author_email = 'alexwtz@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/alexwtz/fastInput',   # Provide either the link to your github or to your website
-  download_url = f'https://github.com/alexwtz/FastInput/archive/refs/tags/{v}.tar.gz'.format(v=version),    # I explain this later on
+  download_url = f"https://github.com/alexwtz/FastInput/archive/refs/tags/{version}.tar.gz',    # I explain this later on
   keywords = ['input', 'validation', 'prompt'],   # Keywords that define your package best
   install_requires=find_required(),
   classifiers=[
