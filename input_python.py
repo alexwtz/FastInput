@@ -21,6 +21,13 @@ class InputType(Enum):
     INTEGER = 'integer'
     FLOAT = 'float'
     STRING = 'string'
+    BOOL = 'boolean'
+
+def input_with_confirmation(prompt:str, default_value:bool=None):
+    choice = input_with_validation(prompt,InputType.BOOL,False if default_value is None else True)
+    if choice is None:
+        return default_value
+    return choice
 
 def input_with_validation(prompt:str, type: str, can_be_empty=False, lower_bound=None, upper_bound=None):
     """
@@ -86,6 +93,14 @@ def input_with_validation(prompt:str, type: str, can_be_empty=False, lower_bound
                 choice_cast = float(choice)
             elif type == InputType.STRING:
                 choice_cast = str(choice)
+            elif type == InputType.BOOL:
+                if choice.lower() in ['y','o','yes','oui']:
+                    return True
+                elif choice.lower() in ['n','no','non']:
+                    return False
+                else:
+                    print("Unknown answer please answer with yes or no")
+                    choice = input()
             if not lower_bound is None and not upper_bound is None:
                 if choice_cast >= lower_bound and choice_cast <= upper_bound:
                     return choice_cast
@@ -107,6 +122,8 @@ def main():
         , input_with_validation("Provide your id", InputType.INTEGER,False,0))
 
     print(myInitForm)
+
+    input_with_confirmation("Do you like this app?")
 
 if __name__ == "__main__":
     main()
