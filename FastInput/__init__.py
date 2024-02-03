@@ -1,1 +1,1 @@
-from fastInput import input_with_validation,input_with_confirmation
+from fast_input import input_for_confirmation, input_with_validation
