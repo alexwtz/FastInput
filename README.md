@@ -27,3 +27,34 @@ import FastInput as fi
 
 yourChoice = fi.input_for_confirmation("Do you agree?[Y/n]", True))
 ```
+
+*Result*
+
+```
+python FastInput/fast_input.py
+What is your user?
+
+Your answer cannot be empty.
+Alex
+Provide your id
+( >= 0 )
+-1
+Wrong choice. Please provide an answer >= 0
+0
+Provide your id2
+( <= 10 )
+12
+Wrong choice. Please provide an answer <= 10
+a
+Wrong choice type. Please provide an answer of type : integer
+
+Your answer cannot be empty.
+5
+Provide your id3 any integer
+w
+Wrong choice type. Please provide an answer of type : integer
+123
+InitForm(user='Alex', id=0, id2=5, id3=123)
+Do you like this app?
+Yes
+```
