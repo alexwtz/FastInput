@@ -8,9 +8,6 @@ This library is a wrapper arround the input method. It allows to very the input 
 pip install FastInput
 ```
 
->>> st = fi.input_for_confirmation("Do you like this app?")
-Do you like this app?
-
 *Usage*
 Asking for an integer value between 0 and 4:
 ```python
