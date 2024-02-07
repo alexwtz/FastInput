@@ -1,14 +1,15 @@
-**A Python library to simplify the input from user**
+***A Python library to simplify the input from user***
 
 This library is a wrapper arround the input method. It allows to very the input according to the selected type, lower or upper bound provided.
 
-*Instalation*
+**Instalation**
 
 ```
 pip install FastInput
 ```
 
-*Usage*
+**Usage**
+
 Asking for an integer value between 0 and 4:
 ```python
 import FastInput as fi
@@ -35,7 +36,7 @@ list=[1,2,"test",False]
 yourChoice = input_within_list(list)
 ```
 
-*Result*
+**Result**
 
 ```
 $> python FastInput/fast_input.py
