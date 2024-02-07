@@ -134,7 +134,58 @@ def input_with_validation(prompt:str, type: str, can_be_empty=False, lower_bound
             choice=input()
     return choice_cast
 
+def input_within_list(list, as_selection=False):
+    """
+            Parameters
+            ----------
+            list : Array
+                Define the list of choice you want to propose
+            as_selection: bool, optional
+    """
 
+    if len(list) == 0:
+        print("The choice list is empty")
+        return None
+    elif len(list) == 1:
+        print("The programmer choose for you!")
+        return list[0]
+    else:
+        if as_selection:
+            prompt = "Choose a value among :"
+            count = 1
+            for s in list:
+                prompt += f"\n  {count}. {s}"
+                count += 1
+            choice=input_with_validation(prompt,InputType.INTEGER,False,1,len(list))
+            return list[choice]
+        else:
+            prompt = "Choose a value among : "+str(list)
+            retry = True
+            while retry:
+                choice=input_with_validation(prompt,InputType.STRING,False)
+                for c in list:
+                    try:
+                        if type(c) is int:
+                            val = int(choice)
+                        elif type(c) is float:
+                            val = float(choice)
+                        elif type(c) is str:
+                            val = str(choice)
+                        elif type(c) is bool:        
+                            if choice in ['True']:
+                                val = True
+                            elif choice in ['False']:
+                                val = False
+                            else:
+                                val = None
+                        #print(f"{c} - {val}")
+                        if val == c:
+                            return val
+                    except:
+                        #the chosen type do not match
+                        #print(f"{c} + {type(c)}")
+                        retry = True
+                print("Your choice is not in the list")
 if __name__ == "__main__":
     #example code
     InitForm = namedtuple("InitForm", ["user", "id","id2","id3" ])
@@ -149,3 +200,9 @@ if __name__ == "__main__":
     print(myInitForm)
 
     input_for_confirmation("Do you like this app?")
+     
+    list=[1,2,"test",False]
+    input_within_list(list)
+
+    list=[1,2,"test",True]
+    input_within_list(list,True)
