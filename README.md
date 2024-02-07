@@ -27,11 +27,18 @@ import FastInput as fi
 
 yourChoice = fi.input_for_confirmation("Do you agree?[Y/n]", True))
 ```
+Asking for a choice in a list:
+```python
+import FastInput as fi
+
+list=[1,2,"test",False]
+yourChoice = input_within_list(list)
+```
 
 *Result*
 
 ```
-python FastInput/fast_input.py
+$> python FastInput/fast_input.py
 What is your user?
 
 Your answer cannot be empty.
@@ -57,4 +64,21 @@ Wrong choice type. Please provide an answer of type : integer
 InitForm(user='Alex', id=0, id2=5, id3=123)
 Do you like this app?
 Yes
+
+Choose a value among : [1, 2, 'test', False]
+4
+Your choice is not in the list
+Choose a value among : [1, 2, 'test', False]
+Alex
+Your choice is not in the list
+Choose a value among : [1, 2, 'test', False]
+test
+
+Choose a value among :
+  1. 1
+  2. 2
+  3. test
+  4. True
+( >= 1 and <= 4 )
+1
 ```
